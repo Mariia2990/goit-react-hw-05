@@ -1,11 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../../service/moviesApi'
-import {Link} from "react-router-dom";
+import css from './MovieDetailsPage.module.css'
  
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movies, setMovies] = useState(null);
+  const location = useLocation();
+  const backLink = location.state?.from || '/movies';
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -19,20 +21,39 @@ const MovieDetailsPage = () => {
 
     getMovieDetails();
   }, [movieId]);
-  return (
-    <div>
-      {movies ? (
-        <>
+   if (!movies) {
+    return <p>Loading...</p>;
+  }
+   return (
+    <div className={css.container}>
+      <Link to={backLink} className={css.goBack}>
+        Go back
+      </Link>
+      <div className={css.details}>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
+          alt={movies.title}
+          className={css.poster}
+        />
+        <div>
           <h1>{movies.title}</h1>
-          <h2>Overview</h2>
-          <p>{movies.overview}</p>
-
-          <Link to="cast">Cast</Link>
-          <Link to="reviews">Reviews</Link>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+          <p><strong>Overview:</strong> {movies.overview}</p>
+          <p><strong>Release date:</strong> {movies.release_date}</p>
+          <p><strong>Genres:</strong> {movies.genres.map(genre => genre.name).join(', ')}</p>
+        </div>
+      </div>
+      <div className={css.additionalInfo}>
+        <h2>Additional information</h2>
+        <ul>
+          <li>
+            <Link to="cast" state={{ from: backLink }}>Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews" state={{ from: backLink }}>Reviews</Link>
+          </li>
+        </ul>
+      </div>
+      <Outlet />
     </div>
   );
 };
