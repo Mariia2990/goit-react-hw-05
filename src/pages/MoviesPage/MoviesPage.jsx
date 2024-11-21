@@ -37,7 +37,7 @@ const MoviesPage = () => {
   return (
     <div>
       <SearchForm onSubmit={handleSearch} initialQuery={queryParam} />
-      <MoviesList movies={movies} />
+      <MoviesList movies={movies}/>
     </div>
   );
 };

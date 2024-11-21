@@ -40,3 +40,8 @@
   transform: scale(1);
   pointer-events: none;
 }
+
+.logoIcon{
+  width: 35px;
+  height: 35px;
+}
