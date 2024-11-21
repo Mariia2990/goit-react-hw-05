@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZjc1OGYwYmMwOGFhYWY1NzNlNDNmYzE2MmRhMjczYyIsIm5iZiI6MTczMjAwNzcwNy4wNTE2ODQ5LCJzdWIiOiI2NzNjNTIxMDhmYmMwODk2MWEyM2E2NmUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.meYnUdgg8K3JztAbNS0tpeRxTcQPZbUpN16JIdnGb7Q';
-
+const BASE_URL = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: {
     Authorization: API_KEY,
   },
 });
+
 
 // Отримати популярні фільми
 export const fetchTrendingMovies = async () => {

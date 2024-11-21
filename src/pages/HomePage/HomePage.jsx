@@ -4,14 +4,15 @@ import MoviesList from '../../components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
+   const [error, setError] = useState(null);
 
   useEffect(() => {
     const getTrendingMovies = async () => {
       try {
-        const movies = await fetchTrendingMovies();
-        setMovies(movies);
+        const results = await fetchTrendingMovies();
+        setMovies(results);
       } catch (error) {
-        console.error('Failed to fetch trending movies:', error)
+       setError('Failed to fetch trending movies:', error)
       }
     }
     getTrendingMovies();
@@ -19,6 +20,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Trending Movies</h1>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <MoviesList movies={movies} />
     </div>
   );

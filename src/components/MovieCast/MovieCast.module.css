@@ -1,8 +1,34 @@
 .castItem{
 list-style-type: none;
-
+    overflow: hidden;
+    flex-basis: calc((100% - 48px) / 4);
 }
 
 .castList{
-    list-style-type: none;
+list-style-type: none;
+display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding:0;
+    font-size: 18px;
+}
+
+
+.placeholder{
+    display: flex;
+    flex-direction: column;
+    padding: 139px 0;
+    align-items: center;
+}
+
+.iconNoImage{
+    width: 40px;
+    height: 40px;
+}
+
+.profileImage{
+    border-radius:100%;
+    width: 200px;
+    height:200px;
+    object-fit: center;
 }

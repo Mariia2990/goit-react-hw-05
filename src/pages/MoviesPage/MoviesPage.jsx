@@ -1,30 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { searchMovies } from '../../service/moviesApi';
 import MoviesList from '../../components/MoviesList/MoviesList';
+import toast from 'react-hot-toast'
+import SearchForm from '../../components/SearchForm/SearchForm'
 
 const MoviesPage = () => {
-    const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
-    const handleSearch = async() => {
-        try {
-            const results = await searchMovies(query);
-            setMovies(results);
-        } catch (error) {
-            console.error('Failed to search movies:', error);
-        }
+  const [movies, setMovies] = useState([]);
+  const location = useLocation(); 
+  const navigate = useNavigate();
+  const queryParam = new URLSearchParams(location.search).get('query') || ''; 
+
+  useEffect(() => {
+    if (queryParam) {
+      fetchMovies(queryParam);
     }
-    return (
+  }, [queryParam]);
+
+  const fetchMovies = async (query) => {
+    try {
+      const results = await searchMovies(query);
+      if (results.length === 0) {
+        toast.info('No movies found! Try another query.');
+      }
+      setMovies(results);
+    } catch (error) {
+      console.error('Failed to search movies:', error);
+      toast.error('Error fetching movies! Please try again later.');
+    }
+  };
+
+  const handleSearch = (query) => {
+    navigate(`?query=${query}`);
+  };
+
+  return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search movies..."
-      />
-      <button onClick={handleSearch}>Search</button>
+      <SearchForm onSubmit={handleSearch} initialQuery={queryParam} />
       <MoviesList movies={movies} />
     </div>
   );
 };
 
-export default MoviesPage
+export default MoviesPage;

@@ -1,0 +1,8 @@
+.reviewsList{
+    list-style-type: none;
+    padding:0;
+}
+
+.reviewItem{
+    text-align: left;
+}

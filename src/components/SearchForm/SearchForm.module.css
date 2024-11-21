@@ -1,0 +1,16 @@
+.fieldInput{
+    width: 340px;
+    height: 30px;
+    padding-left: 20px;
+    padding-top: 8px;
+    border-radius: 8px;
+    transition: border-color .25s cubic-bezier(.4,0,.2,1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: .04em;
+    color: #2e2f42;
+    margin-bottom: auto;
+    background-color: #fff;
+    margin-top: 20px;
+}

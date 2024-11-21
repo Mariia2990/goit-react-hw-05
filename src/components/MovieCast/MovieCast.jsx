@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from '../../service/moviesApi';
 import css from './MovieCast.module.css'
+import { MdOutlineImageNotSupported } from "react-icons/md";
 
 const MovieCast = () => {
     const { movieId } = useParams();
@@ -32,7 +33,8 @@ return (
               className={css.profileImage}
             />
           ) : (
-            <div className={css.placeholder}>No Image</div>
+              <div className={css.placeholder}><MdOutlineImageNotSupported className={css.iconNoImage} />
+</div>
           )}
           <p><strong>{name}</strong></p>
           <p>Character: {character}</p>
