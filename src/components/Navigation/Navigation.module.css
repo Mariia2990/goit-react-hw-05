@@ -9,23 +9,19 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   list-style-type: none;
-  color: #ffff;
-
+  color: #646cff;
 }
 
 .link {
-  color: #ffff;
-  font-size: 20px;
+  color: #646cff;
+  font-size: 18px;
   font-weight: 700;
-
   text-transform: uppercase;
-
   transition-property: color, background-color, transform;
   transition-duration: 0.2s;
   transition-timing-function: var(--animation-cubicBezier);
-
   transform: scale(0.9);
 }
 
@@ -42,6 +38,36 @@
 }
 
 .logoIcon{
+  width: 25px;
+  height: 25px;
+  fill:#646cff;
+}
+
+@media screen and (min-width: 768px) {
+.link {
+  font-size: 20px;
+}
+.nav {
+  gap: 20px;
+}
+
+.logoIcon {
   width: 35px;
   height: 35px;
+}
+}
+
+@media screen and (min-width: 1280px) {
+  .link {
+    font-size: 24px;
+  }
+
+  .nav {
+    gap: 24px;
+  }
+
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
 }

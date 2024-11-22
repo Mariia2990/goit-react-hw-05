@@ -1,7 +1,27 @@
 .list{
-    list-style-type: none;
+    list-style-type: decimal;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 28px;
+    font-size: 16px;
+    gap: 10px;
+    color:#646cff;
+    font-weight: 500;
+    text-align: left;
+}
+
+.item {
+color: darkblue;
+}
+
+@media screen and (min-width: 768px) {
+.list {
+    font-size: 20px;
+}
+}
+
+@media screen and (min-width: 1280px) {
+    .list {
+        font-size: 24px;
+    }
 }

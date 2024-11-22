@@ -31,8 +31,8 @@ const MoviesPage = () => {
   };
 
   const handleSearch = (query) => {
-    navigate(`?query=${query}`);
-  };
+  navigate(`?query=${query}`, { state: { from: location } });
+};
 
   return (
     <div>

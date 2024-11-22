@@ -23,7 +23,7 @@ h2{
 .listInfo{
     list-style-type: none;
     padding: 0;
-    font-size: 18px;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -36,4 +36,47 @@ h2{
 
 .container{
 margin-top: 20px;
+}
+
+.poster{
+    width: 100px;
+    height: 150px;
+}
+
+.titleMovie{
+    font-size: 18px;
+    margin:0;
+    color:darkblue;
+}
+
+.subText{
+    font-size: 12px;
+        margin: 12px 0 0 0;
+}
+
+
+.subTitleMovie{
+    font-size: 16px;
+    margin: 18px 0 0 0;
+}
+
+@media screen and (min-width: 768px) {
+    .poster {
+            width: 350px;
+            height: 400px;
+        }
+    .titleMovie {
+            font-size: 38px;
+            margin: 0;
+        }
+    .subText {
+            font-size: 14px;
+            margin: 18px 0 0 0;
+                }
+    .subTitleMovie {
+            font-size: 20px;
+                                }
+    .listInfo {
+            font-size: 18px;
+        }
 }

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link} from 'react-router-dom';
 import css from './Navigation.module.css';
 import { SiThemoviedatabase } from "react-icons/si";
 
@@ -6,7 +6,9 @@ const Navigation = () => {
   return (
 
     <nav className={css.nav}>
-      <SiThemoviedatabase to="/" className={css.logoIcon}/>
+      <Link to="/" className={css.logoLink}>
+        <SiThemoviedatabase className={css.logoIcon} />
+      </Link>
       <NavLink to="/" className={({ isActive }) => (isActive ? css.isActive : css.link)}>
         Home
       </NavLink>

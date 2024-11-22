@@ -36,8 +36,8 @@ return (
               <div className={css.placeholder}><MdOutlineImageNotSupported className={css.iconNoImage} />
 </div>
           )}
-          <p><strong>{name}</strong></p>
-          <p>Character: {character}</p>
+          <p className={css.nameActor}><strong>{name}</strong></p>
+          <p className={css.character}>{character}</p>
         </li>
       ))}
     </ul>

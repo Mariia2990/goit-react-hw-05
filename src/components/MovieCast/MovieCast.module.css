@@ -10,25 +10,56 @@ display: flex;
     flex-wrap: wrap;
     gap: 16px;
     padding:0;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
 .placeholder{
     display: flex;
     flex-direction: column;
-    padding: 139px 0;
+    padding: 27px 0;
     align-items: center;
 }
 
 .iconNoImage{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 .profileImage{
-    border-radius:100%;
-    width: 200px;
-    height:200px;
-    object-fit: center;
+    border-radius:10%;
+    width: 60px;
+    height:80px;
 }
+
+.nameActor,
+.character{
+margin:0;
+}
+
+@media screen and (min-width: 768px) {
+    .profileImage{
+        width: 80px;
+        height: 100px;
+    }
+        .castItem {
+            list-style-type: none;
+            overflow: hidden;
+            flex-basis: calc((100% - 48px) / 8);
+        }
+                .placeholder {
+                    padding: 36px 0;
+                }
+}
+
+@media screen and (min-width: 1280px) {
+    .profileImage {
+        width: 120px;
+        height: 160px;
+    }
+ .placeholder {
+     padding: 68px 0;
+ }
+ }
+
+

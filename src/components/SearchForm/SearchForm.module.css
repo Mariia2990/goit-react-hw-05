@@ -1,6 +1,6 @@
 .fieldInput{
-    width: 340px;
-    height: 30px;
+    width: 240px;
+    height: 20px;
     padding-left: 20px;
     padding-top: 8px;
     border-radius: 8px;
@@ -13,4 +13,18 @@
     margin-bottom: auto;
     background-color: #fff;
     margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .fieldInput{
+    width: 300px;
+    height: 30px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .fieldInput {
+        width: 340px;
+        height: 30px;
+    }
 }
